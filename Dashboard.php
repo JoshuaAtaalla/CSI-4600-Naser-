@@ -1,4 +1,6 @@
-<?php require('dbConnector.php') ?>
+<?php require('dbConnector.php');
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +16,7 @@
     </style>
 </head>
 <body>
+<h1>Logged in as <?= isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest' ?></h1>
     <h2>Admin Dashboard</h2>
     <div class="menu">
         <ul>

