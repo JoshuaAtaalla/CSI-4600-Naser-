@@ -1,3 +1,8 @@
+<?php require('dbConnector.php');
+session_start()
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +20,12 @@
 <body>
     <h2>Admin Panel</h2>
     <div class="login-box">
-        <form id="honeypotForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Pin" required>
-            <button type="submit" id="login-button">Login</button>
+        <form id="honeypotForm" action="loginFunction.php" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Pin" required>
+            <button type="submit">Login</button>
         </form>
     </div>
-    <script src="functions.js"></script>
 </body>
 </html>
+

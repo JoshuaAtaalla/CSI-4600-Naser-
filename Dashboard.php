@@ -1,3 +1,5 @@
+<?php require('dbConnector.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,3 +25,5 @@
     </div>
 </body>
 </html>
+
+
