@@ -16,7 +16,8 @@ if(username === "Admin" && password === "007"){ //temporary until database is se
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `username=${username}&password=${password}`
      })
-                
+     
+        document.getElementById("feedback").innerHTML = `Invalid credentials, ${username}`;    
         alert("Invalid credentials. Please try again.");
     }
   });
